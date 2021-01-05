@@ -13,7 +13,6 @@ Feature: Login screen scenarios automation
     And  I see the Build Date
     And  I close the window
 
-
   Scenario: Verify login screen elements and links
     When I click on login button
     Then I see the username field

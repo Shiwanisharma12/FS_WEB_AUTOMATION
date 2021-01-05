@@ -1,17 +1,11 @@
 package steps.web;
 
-import com.typesafe.config.Config;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
 import pages.LabToolsPage;
 import pages.LoginPage;
 import pages.ProposedTreatmentPage;
-import utilities.ConfigLoader;
-
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class LabtoolsStep {
     LoginPage page;
@@ -58,8 +52,7 @@ public class LabtoolsStep {
 
 
     @And("^I select start date and time$")
-    public void iSelectStartDateAndTime()
-    {
+    public void iSelectStartDateAndTime() throws InterruptedException {
         Labpage.startDate();
         Labpage.timeForstartDate();
     }
@@ -68,8 +61,10 @@ public class LabtoolsStep {
     @And("^I select end date and time$")
     public void iSelectEndDateAndTime()
     {
+
         Labpage.endDate();
         Labpage.timeForendDate();
+
 
     }
 
@@ -125,12 +120,6 @@ public class LabtoolsStep {
         Labpage.filterEnddate();
     }
 
-    @And("^I see all the new entries as \"([^\"]*)\"$")
-    public void iSeeAllTheNewEntriesAs(String message)
-    {
-        Labpage.filteredNewentries(message);
-
-    }
 
     @And("^I click on first entry$")
     public void iClickOnFirstEntry()
@@ -305,11 +294,10 @@ public class LabtoolsStep {
     }
 
     @And("^I click on edit pool button and verify success message \"([^\"]*)\"$")
-    public void iClickOnEditPoolButtonAndVerifySuccessMessage(String message)
-    {
+    public void iClickOnEditPoolButtonAndVerifySuccessMessage(String message) throws InterruptedException {
         Labpage.updatePoolvalue();
-        Labpage.editPool();
-        Labpage.editSuccessmessage(message);
+        Labpage.editPool(message);
+//        Labpage.editSuccessmessage(message);
 
     }
 
@@ -319,5 +307,10 @@ public class LabtoolsStep {
         Labpage.tapOnLarvalFirstentry();
     }
 
+    @And("^I see all the new entries as \"([^\"]*)\",\"([^\"]*)\"$")
+    public void iSeeAllTheNewEntriesAs(String map, String trapType)
+    {
+        Labpage.filteredNewentries(map,trapType);
 
+    }
 }

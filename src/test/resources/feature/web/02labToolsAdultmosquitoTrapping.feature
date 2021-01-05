@@ -19,18 +19,23 @@ Feature: LabTools module automation
     And  I select start date and time
     And  I select end date and time
     And  I select Field tech option
+
     And  I open trap data details
     And  I fill trap type and trap Activity type fields
     And  I click on save button
     Then I verify successful message as "Data saved successfully"
 
-  Scenario: Search entry by applying filters and verify correct entries are visible
+  Scenario Outline: Search entry by applying filters and verify correct entries are visible
     And  I select Map area type
     And  I select Trap type
     And  I select start date
     And  I select end date
     And  I click on search button
-    And  I see all the new entries as "#10 AFB FNWS BG Counter 12/07/2021 06:25 pm Brad Clark"
+    And  I see all the new entries as "<map area>","<trap type>"
+
+    Examples:
+      | map area | trap type  |
+      | FNWS     | BG Counter |
 
   Scenario: I edit entry
     And  I select Map area type
@@ -38,21 +43,25 @@ Feature: LabTools module automation
     And  I select start date
     And  I select end date
     And  I click on search button
-   And   I click on first entry
+    And   I click on first entry
     And  I click on edit button
     And  I change the field type from Brad Clark to Chris McCabe
     And  I change the Trap type from BG counter to CDC Light Trap CO
     And  I click on save button
-   Then  I verify successful message as "Data saved successfully"
+    Then  I verify successful message as "Data saved successfully"
 
-  Scenario: I search edited entry and verify changes
+  Scenario Outline: I search edited entry and verify changes
 
     And  I select Map area type
     And  I select changed value of  Trap type
     And  I select start date
     And  I select end date
     And  I click on search button
-    And  I see all the new entries as "#10 AFB FNWS CDC Light Trap CO2 12/07/2021 06:25 pm Chris McCabe"
+    And  I see all the new entries as "<map area>","<trap type>"
+
+    Examples:
+      | map area | trap type          |
+      | FNWS     | CDC Light Trap CO2 |
 
   Scenario: I close entry
     And  I select Map area type
@@ -124,7 +133,7 @@ Feature: LabTools module automation
     And  I click on search button
     And  I select all entries by clicking on selectAll
     And  I delete the first entry after accepting all the alert message
-    And  I verify successful deleted message as "successfully deleted"
+#    And  I verify successful deleted message as "successfully deleted"
 
 
 

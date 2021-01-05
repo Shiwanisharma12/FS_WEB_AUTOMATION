@@ -78,6 +78,8 @@ public class LoginPage extends PageObject {
     {
         waitFor(elementloadWait);
         openUrl(config.getString("base_url"));
+        openUrl(config.getString("base_url"));
+
 //        getDriver().manage().window().maximize();
         getDriver().manage().window().setSize(new Dimension(1920, 1080));
 
@@ -100,7 +102,7 @@ public class LoginPage extends PageObject {
 
 
     public void windowSwitch() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         Set<String> windows = getDriver().getWindowHandles();
         for (String ws : windows)
         {
@@ -156,8 +158,7 @@ public class LoginPage extends PageObject {
     public void login() {
 
         waitABit(pageloadWait);
-        waitFor(loginButton).withTimeoutOf(long_wait,TimeUnit.SECONDS).waitUntilClickable().click();
-        waitABit(elementloadWait);
+        withTimeoutOf(long_wait,TimeUnit.SECONDS).waitFor(loginButton).waitUntilClickable().click();
     }
 
     public void username() throws InterruptedException {

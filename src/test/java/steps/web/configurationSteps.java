@@ -2,10 +2,12 @@ package steps.web;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.java.bs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.configurationPage;
+import utilities.RandomGenerator;
 
 import java.util.List;
 import java.util.Map;
@@ -123,7 +125,9 @@ public class configurationSteps {
         String Lrange = list.get(0).get("L range");
         String Hrange = list.get(0).get("H range");
         String ChemregNo = list.get(0).get("chemreg no.");
-        configurationPage.larvicidingAddproductDetails(Name, Value, Name,Value,Duration,Lrange,Hrange,ChemregNo);
+        String mixrate = list.get(0).get("mixrate");
+        String AI = list.get(0).get("A.I");
+        configurationPage.larvicidingAddproductDetails(Name,Value,Duration,Lrange,Hrange,ChemregNo,mixrate,AI);
     }
 
     @And("^I click on save button to save larvicing product$")
@@ -190,7 +194,7 @@ public class configurationSteps {
         String mixrate = list.get(0).get("mixrate");
         String AI = list.get(0).get("A.I");
 
-        configurationPage.UAVAddproductDetails(Name,Value,Duration,Lrange,Hrange,ChemregNo,mixrate,AI);
+        configurationPage.UAVAddproductDetails(Name+RandomGenerator.randomAlphanumeric(2),Value+RandomGenerator.randomAlphanumeric(4),Duration,Lrange,Hrange,ChemregNo,mixrate,AI);
     }
 
     @And("^I select diluent value as \"([^\"]*)\"$")

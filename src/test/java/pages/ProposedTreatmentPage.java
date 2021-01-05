@@ -523,7 +523,7 @@ public class ProposedTreatmentPage extends PageObject {
 
     public void equatingValuesForregularTreatment(String enteredQty, String vehiclevalue) throws InterruptedException {
 
-        waitABit(elementloadWait);
+        waitABit(pageloadWait);
         withTimeoutOf(360, TimeUnit.SECONDS).waitFor(getDriver().findElement(By.xpath("//*/table[@id='tblInventory']/tbody/tr/td[text()='" + vehiclevalue + "']"))).waitUntilClickable().click();
         waitABit(elementloadWait);
         String Value = withTimeoutOf(60, TimeUnit.SECONDS).waitFor(getDriver().findElement(By.xpath("(//table[@id='tblProducts']/tbody/tr/td[2])[1]"))).getText().split(" ")[0];

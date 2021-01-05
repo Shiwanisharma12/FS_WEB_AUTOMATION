@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features="C:\\Demo code\\FieldSeeker_Automation_WEB\\src\\test\\resources\\feature\\web\\05ProposedTreatmentArea.feature" )
+@CucumberOptions(features="C:\\Demo code\\FieldSeeker_Automation_WEB\\src\\test\\resources\\feature\\web\\" )
 //@CucumberOptions(features = "src/test/resources/feature/web/facility.feature")
 
 public class RunTests {

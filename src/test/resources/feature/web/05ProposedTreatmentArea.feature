@@ -10,7 +10,7 @@ Feature: Proposed Treatment Area module automation
     And  I see Lab tools
 
 #  //proposed area treatment tab
-#
+
   Scenario Outline: Creation and verification of new entry in map tab
     When I click on map tab and search for "<Map area>"
     And  I click on layer list and turn on all the layers

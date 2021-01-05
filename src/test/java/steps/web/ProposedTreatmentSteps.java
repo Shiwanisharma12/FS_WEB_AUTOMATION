@@ -142,7 +142,7 @@ public class ProposedTreatmentSteps {
     @And("^I get vehicles \"([^\"]*)\"\"([^\"]*)\" value and verify spray foot value is deducted from vehicle's value$")
     public void iGetVehiclesValueAndVerifySprayFootValueIsDeductedFromVehicleSValue(String fogHours, String vehiclevalue) throws InterruptedException {
 //        proposedTreatmentPage.productInventoryvehicleValue(vehiclevalue);
-        proposedTreatmentPage.equatingValues(fogHours,vehiclevalue);
+        proposedTreatmentPage.equatingValues(fogHours, vehiclevalue);
 
     }
 
@@ -300,12 +300,10 @@ public class ProposedTreatmentSteps {
     }
 
     @And("^I click on first entry and click on delete button$")
-    public void iClickOnFirstEntryAndClickOnDeleteButton()
-    {
+    public void iClickOnFirstEntryAndClickOnDeleteButton() {
         proposedTreatmentPage.firstEntryclick();
         proposedTreatmentPage.deleteBtn();
     }
-
 
 
     @When("^I click on map tab and search for \"([^\"]*)\"$")
@@ -317,53 +315,46 @@ public class ProposedTreatmentSteps {
 
 
     @And("^I draw the polygon on map by select draw option on \"([^\"]*)\" dialog box$")
-    public void iDrawThePolygonOnMapBySelectDrawOptionOnDialogBox(String message)
-    {
+    public void iDrawThePolygonOnMapBySelectDrawOptionOnDialogBox(String message) {
         proposedTreatmentPage.drawOptiondialogBox(message);
         proposedTreatmentPage.polygon();
 
     }
 
     @And("^I go to complete proposed treatment area tab$")
-    public void iGoToCompleteProposedTreatmentAreaTab()
-    {
+    public void iGoToCompleteProposedTreatmentAreaTab() {
         proposedTreatmentPage.completeButton();
 
     }
 
     @And("^I click on edit PTA button$")
-    public void iClickOnEditPTAButton()
-    {
+    public void iClickOnEditPTAButton() {
         proposedTreatmentPage.editPTAbtn();
     }
 
     @And("^I select \"([^\"]*)\"and enter \"([^\"]*)\"$")
-    public void iSelectAndEnter(String product, String apprate)
-    {
+    public void iSelectAndEnter(String product, String apprate) {
         proposedTreatmentPage.editptaProductField(product);
         proposedTreatmentPage.editPtaApprateField(apprate);
     }
 
 
     @And("^I click on first entry of PTA tab$")
-    public void iClickOnFirstEntryOfPTATab()
-    {
+    public void iClickOnFirstEntryOfPTATab() {
         proposedTreatmentPage.firstEntryclick();
 
     }
 
 
     @And("^I verify values \"([^\"]*)\" and \"([^\"]*)\" are visible$")
-    public void iVerifyValuesAndAreVisible( String product, int  apprate)
-    {
+    public void iVerifyValuesAndAreVisible(String product, int apprate) {
         proposedTreatmentPage.verifyProduct(product);
 //        proposedTreatmentPage.verifyApprate(apprate);
 
     }
 
     @And("^I click on update button of pta tab$")
-    public void iClickOnUpdateButtonOfPtaTab()
-    {
+    public void iClickOnUpdateButtonOfPtaTab() {
         proposedTreatmentPage.updatePTA();
     }
 
@@ -377,8 +368,7 @@ public class ProposedTreatmentSteps {
     }
 
     @And("^I click on export button by selecting SHP$")
-    public void iClickOnExportButtonBySelectingSHP()
-    {
-       proposedTreatmentPage.exportwithSHPbtnFunctionality();
+    public void iClickOnExportButtonBySelectingSHP() {
+        proposedTreatmentPage.exportwithSHPbtnFunctionality();
     }
 }
